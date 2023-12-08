@@ -9,18 +9,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+@Component
 public class MainServlet extends HttpServlet {
   public static final String API_POSTS = "/api/posts";
   public static final String API_POSTS_D = "/api/posts/\\d+";
   public static final String STR = "/";
-  private PostController controller;
+  private final PostController controller;
+  private final PostService service;
+  private final PostRepository repository;
 
-  @Override
-  public void init() {
-    final var repository = new PostRepository();
-    final var service = new PostService(repository);
-    controller = new PostController(service);
-  }
+
 
   @Override
   protected void service(HttpServletRequest req, HttpServletResponse resp) {
