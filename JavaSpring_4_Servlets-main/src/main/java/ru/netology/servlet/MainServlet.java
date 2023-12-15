@@ -13,6 +13,7 @@ public class MainServlet extends HttpServlet {
   public static final String API_POSTS = "/api/posts";
   public static final String API_POSTS_D = "/api/posts/\\d+";
   public static final String STR = "/";
+  private final PostController controller;
 
 
   @Override
