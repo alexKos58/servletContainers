@@ -13,13 +13,13 @@ public class MainServlet extends HttpServlet {
   public static final String API_POSTS = "/api/posts";
   public static final String API_POSTS_D = "/api/posts/\\d+";
   public static final String STR = "/";
-  private final PostController controller = new PostController(service);
+  PostController controller;
 
 
   @Override
   public void init() {
     final var context = new AnnotationConfigApplicationContext(JavaConfig.class);
-    final var controller = context.getBean("postContriller");
+    controller = context.getBean("postContriller");
   }
 
   @Override
